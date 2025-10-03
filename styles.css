@@ -1,0 +1,235 @@
+/* General mobile-first styles - unchanged */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Updated container to use modern units and improve responsiveness */
+.container {
+    width: 95vw; /* Use viewport width for better responsiveness */
+    max-width: 1000px;
+    margin: 20px auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    overflow-y: hidden; /* Prevent vertical scrolling inside the container */
+    overflow-x: hidden;
+}
+
+/* Image container and overlay - unchanged */
+.image-container {
+    position: relative;
+    width: 100%;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.overlay-text {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+}
+
+.overlay-text h1 {
+    font-size: clamp(2rem, 8vw, 4rem);
+    margin: 0;
+}
+
+.overlay-text p {
+    font-size: clamp(1rem, 4vw, 2rem);
+    margin: 0;
+}
+
+/* Hero navigation - adjusted for better placement on smaller screens */
+.hero-nav {
+    position: absolute;
+    top: 15px; /* Use a smaller value */
+    right: 15px; /* Use a smaller value */
+}
+
+.hero-nav p {
+    color: white;
+    text-decoration: none;
+    font-size: clamp(0.8rem, 2vw, 1.2rem); /* Make font size responsive */
+}
+
+.subtitulo {
+    text-align: center;
+    margin-top: 50px;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+/* --- Gallery Styles --- */
+/* Gallery container - fixed overflow and added a responsive layout */
+.gallery-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 15px;
+    background-color: #e5e5e5;
+    border-radius: 8px;
+}
+
+.gallery-item {
+    flex-shrink: 0;
+    width: 150px;
+    height: 100px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Hide scrollbar for a cleaner look */
+.gallery-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* View more button - unchanged */
+.view-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.view-more button {
+    height: 50px;
+    width: 120px;
+    font-size: 16px;
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 2px;
+    color: white;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.view-more button:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Stats blocks - unchanged */
+.container-stats {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 20px; /* Simplified margins */
+    gap: 10px; /* Use gap property for spacing */
+    margin-bottom: 100px;
+}
+
+.block {
+    flex-basis: calc(33.333% - 10px); /* Adjusted for new gap */
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* --- Responsive Media Queries --- */
+
+/* For screens larger than 600px, but smaller than 768px */
+@media (min-width: 601px) and (max-width: 768px) {
+    .block {
+        flex-basis: calc(50% - 10px); /* 2 columns on tablets */
+    }
+}
+
+/* For screens smaller than 600px */
+@media (max-width: 600px) {
+    .container {
+        margin: 0;
+        border-radius: 0;
+    }
+
+/* Gallery Styles */
+.gallery-container {
+    display: flex;
+    flex-wrap: nowrap; /* Prevents wrapping and forces a single row */
+    overflow-x: auto; /* Adds horizontal scrolling */
+    gap: 15px;
+    padding: 15px;
+    background-color: #e5e5e5;
+    border-radius: 8px;
+    /* This scrollbar-hidden style is good to keep */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.gallery-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Webkit browsers */
+}
+
+.gallery-item {
+    flex-shrink: 0; /* Prevents items from shrinking */
+    width: 150px; /* Gives each item a fixed, smaller width */
+    height: 100px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Remove this media query */
+/*
+@media (max-width: 600px) {
+  .gallery-container {
+    flex-wrap: wrap; 
+    overflow-x: hidden;
+  }
+  .gallery-item {
+    width: 100%; 
+    height: auto; 
+  }
+}
+*/
+    
+    .container-stats {
+        flex-direction: column;
+    }
+
+    .block {
+        flex-basis: 100%; /* Full width for each block */
+    }
+}
+
+.link-footer p {
+    text-align: center;
+    font-size: 20px;
+}
+
+.link-footer a {
+    text-decoration: underline;
+    color: black;
+    font-weight: 800;
+}
+
+.link-footer a:hover {
+    color: rgb(69, 69, 69);
+}
+
+.link-footer {
+    margin-bottom: 50px;
+}
